@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface HotelRepository : JpaRepository<Hotel, Long> {
-    fun findByName(name: String): List<Hotel>
+    fun findByName(name: String): Hotel
 }

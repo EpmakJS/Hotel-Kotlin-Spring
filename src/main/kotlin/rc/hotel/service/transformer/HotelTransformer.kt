@@ -10,11 +10,14 @@ class HotelTransformer {
     fun transform(dto: HotelDto): Hotel =
             Hotel().apply {
                 name = dto.name
-                classification = 1
+                classification = dto.classification
+                nbRooms = dto.nbRooms
             }
 
     fun transform(entity: Hotel): HotelDto =
             HotelDto(
-                    name = entity.name
+                    name = entity.name,
+                    classification = entity.classification,
+                    nbRooms = entity.nbRooms
             )
 }

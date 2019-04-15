@@ -1,5 +1,7 @@
 package rc.hotel.dto
 
 data class HotelDto(
-        val name: String
+        var name: String,
+        var classification: Int,
+        var nbRooms: Int
 )

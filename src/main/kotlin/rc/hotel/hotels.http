@@ -15,8 +15,28 @@ Content-Type: application/json
   "nbGuests": 4
 }
 
-###
-
+### POST request to create new hotel
 POST http://localhost:8080/hotels
+Content-Type: application/json
+
+{
+  "name": "Ibis",
+  "classification": 4,
+  "nbRooms": 30
+}
+
+### PUT request to change hotel
+PUT http://localhost:8080/hotels/Ibis
+Content-Type: application/json
+
+{
+  "name": "Ibis",
+  "classification": 4,
+  "nbRooms": 24
+}
+
+### DELETE request to delete hotel
+DELETE http://localhost:8080/hotels/Ibis
+Content-Type: application/json
 
 ###
