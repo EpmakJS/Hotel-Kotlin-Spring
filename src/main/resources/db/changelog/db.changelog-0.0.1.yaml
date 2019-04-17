@@ -1,0 +1,225 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: marceloverdijk
+      changes:
+        - createTable:
+            tableName: hotels
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 2
+      author: v2.ermakov
+      changes:
+        - dropColumn:
+            tableName: hotels
+            columnName: first_name
+        - dropColumn:
+            tableName: hotels
+            columnName: last_name
+  - changeSet:
+      id: 3
+      author: v2.ermakov
+      changes:
+        - addColumn:
+            tableName: hotels
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                  name: classification
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: nb_free_rooms
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: nb_rooms
+                  type: BIGINT
+  - changeSet:
+      id: 4
+      author: v2.ermakov
+      changes:
+        - insert:
+            tableName: hotels
+            columns:
+              - column:
+                  name: name
+                  value: "Ibis"
+              - column:
+                  name: classification
+                  value: 3
+              - column:
+                  name: nb_rooms
+                  value: 30
+              - column:
+                  name: nb_free_rooms
+                  value: 30
+        - insert:
+            tableName: hotels
+            columns:
+              - column:
+                  name: name
+                  value: "Continental"
+              - column:
+                  name: classification
+                  value: 5
+              - column:
+                  name: nb_rooms
+                  value: 100
+              - column:
+                  name: nb_free_rooms
+                  value: 100
+  - changeSet:
+      id: 5
+      author: v2.ermakov
+      changes:
+        - dropTable:
+            tableName: hotels
+  - changeSet:
+      id: 6
+      author: v2.ermakov
+      changes:
+        - createTable:
+            tableName: hotel
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+              - column:
+                  constraints:
+                    nullable: false
+                  name: classification
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: nb_rooms
+                  type: BIGINT
+  - changeSet:
+      id: 7
+      author: v2.ermakov
+      changes:
+        - createTable:
+            tableName: client
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+              - column:
+                  constraints:
+                    nullable: false
+                  name: first_name
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: hotel_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: last_name
+                  type: VARCHAR(255)
+  - changeSet:
+      id: 8
+      author: v2.ermakov
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: hotel_id
+            baseTableName: client
+            constraintName: fk_client_hotel
+            deferrable: true
+            initiallyDeferred: true
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: id
+            referencedTableName: hotel
+  - changeSet:
+      id: 9
+      author: v2.ermakov
+      changes:
+        - insert:
+            tableName: hotel
+            columns:
+              - column:
+                  name: name
+                  value: "Ibis"
+              - column:
+                  name: classification
+                  value: 3
+              - column:
+                  name: nb_rooms
+                  value: 30
+        - insert:
+            tableName: hotel
+            columns:
+              - column:
+                  name: name
+                  value: "Continental"
+              - column:
+                  name: classification
+                  value: 5
+              - column:
+                  name: nb_rooms
+                  value: 100
+  - changeSet:
+      id: 10
+      author: v2.ermakov
+      changes:
+        - insert:
+            tableName: client
+            columns:
+              - column:
+                  name: first_name
+                  value: "Ricardo"
+              - column:
+                  name: hotel_id
+                  value: 2
+              - column:
+                  name: last_name
+                  value: "Milos"
+  - changeSet:
+      id: 11
+      author: v2.ermakov
+      changes:
+        - dropNotNullConstraint:
+            columnName: hotel_id
+            tableName: client

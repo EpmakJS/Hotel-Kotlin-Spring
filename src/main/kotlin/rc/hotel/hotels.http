@@ -1,4 +1,4 @@
-### GET request that fetches hall the hotels
+### GET request that fetches all the hotels
 GET http://localhost:8080/hotels
 Content-Type: application/json
 
@@ -6,13 +6,14 @@ Content-Type: application/json
 GET http://localhost:8080/hotels/Ibis
 Content-Type: application/json
 
-### POST request to checkin some guests
-POST http://localhost:8080/hotels/checkin
+### POST request to checkin new client
+POST http://localhost:8080/hotels/Continental/checkout
 Content-Type: application/json
 
 {
-  "hotelName": "Ibis",
-  "nbGuests": 4
+  "id": 6,
+  "firstName": "John",
+  "lastName": "Doe"
 }
 
 ### POST request to create new hotel
@@ -20,9 +21,9 @@ POST http://localhost:8080/hotels
 Content-Type: application/json
 
 {
-  "name": "Ibis",
+  "name": "Palermo",
   "classification": 4,
-  "nbRooms": 30
+  "nbRooms": 60
 }
 
 ### PUT request to change hotel
@@ -31,12 +32,25 @@ Content-Type: application/json
 
 {
   "name": "Ibis",
-  "classification": 4,
-  "nbRooms": 24
+  "classification": 3,
+  "nbRooms": 30
 }
 
 ### DELETE request to delete hotel
 DELETE http://localhost:8080/hotels/Ibis
 Content-Type: application/json
+
+### GET request that fetches all the clients
+GET http://localhost:8080/clients
+Content-Type: application/json
+
+### POST request to create new client
+POST http://localhost:8080/clients
+Content-Type: application/json
+
+{
+  "firstName": "John",
+  "lastName": "Doe"
+}
 
 ###
