@@ -7,7 +7,6 @@ import rc.hotel.model.Client
 import rc.hotel.repository.ClientRepository
 import rc.hotel.repository.HotelRepository
 import rc.hotel.service.HotelService
-import rc.hotel.service.transformer.ClientTransformer
 import rc.hotel.service.transformer.HotelTransformer
 import javax.persistence.EntityNotFoundException
 
@@ -17,6 +16,13 @@ class HotelServiceImpl(
         private val hotelTransformer: HotelTransformer,
         private val clientRepository: ClientRepository
 ) : HotelService {
+
+//    override fun findAllByClientsLessThan(n: Int): List<HotelDto> =
+//            hotelRepository.findAllByClientsLessThan(n).map { hotelTransformer.transform(it) }
+
+    override fun findHotelsByClientsLessThan(n: Int): List<HotelDto> {
+        return hotelRepository.findHotelsByClientsLessThan(n).map { hotelTransformer.transform(it) }
+    }
 
     override fun findAll(): List<HotelDto> =
             hotelRepository.findAll().map { hotelTransformer.transform(it) }
@@ -63,4 +69,5 @@ class HotelServiceImpl(
 
     private fun findOne(hotelName: String) =
             hotelRepository.findByName(hotelName) ?: throw EntityNotFoundException()
+
 }

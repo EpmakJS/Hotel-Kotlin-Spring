@@ -11,10 +11,4 @@ interface ClientService {
     fun findClientById(id: Long): ClientDto?
 
     fun deleteClientById(id: Long)
-
-//    fun findByFirstNameAndLastName(firstName: String, lastName: String): ClientDto?
-//
-//    fun updateClientByFirstNameAndLastName(firstName: String, lastName: String, updatedClientDto: ClientDto) : ClientDto
-//
-//    fun deleteClientByFirstNameAndLastName(firstName: String, lastName: String)
 }

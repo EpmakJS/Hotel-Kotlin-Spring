@@ -33,25 +33,4 @@ class ClientServiceImpl(
                 .let { clientRepository.delete(it) }
     }
 
-//    override fun findByFirstNameAndLastName(firstName: String, lastName: String): ClientDto {
-//        return clientRepository.findClientByFirstNameAndLastName(firstName, lastName)
-//                .let { clientTransformer.transform(it) }
-//    }
-//
-//    override fun updateClientByFirstNameAndLastName(firstName: String, lastName: String, updatedClientDto: ClientDto): ClientDto {
-//        return clientRepository.findClientByFirstNameAndLastName(firstName, lastName)
-//                .let { existingClient ->
-//                    existingClient.firstName = updatedClientDto.firstName
-//                    existingClient.lastName= updatedClientDto.lastName
-//                    existingClient.hotel = updatedClientDto.hotel
-//                    clientRepository.save(existingClient)
-//                }
-//                .let { clientTransformer.transform(it) }
-//    }
-//
-//    override fun deleteClientByFirstNameAndLastName(firstName: String, lastName: String) {
-//        return clientRepository.findClientByFirstNameAndLastName(firstName, lastName)
-//                .let { clientRepository.delete(it) }
-//    }
-
 }

@@ -2,9 +2,12 @@ package rc.hotel.service
 
 import rc.hotel.dto.ClientDto
 import rc.hotel.dto.HotelDto
-import javax.persistence.Id
 
 interface HotelService {
+
+//    fun findAllByClientsLessThan(n: Int): List<HotelDto>
+
+    fun findHotelsByClientsLessThan(n: Int): List<HotelDto>
 
     fun findAll(): List<HotelDto>
 

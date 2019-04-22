@@ -11,8 +11,14 @@ class HotelController(
         private val hotelService: HotelService
 ) {
 
+//    @GetMapping
+//    fun findAllHotels(): List<HotelDto> = hotelService.findAllByClientsLessThan(2)
+
     @GetMapping
-    fun findAllHotels(): List<HotelDto> = hotelService.findAll()
+    fun findAllHotels(): List<HotelDto> = hotelService.findHotelsByClientsLessThan(1)
+
+//    @GetMapping
+//    fun findAllHotels(): List<HotelDto> = hotelService.findAll()
 
     @GetMapping("/{name}")
     fun findHotelByName(@PathVariable(value = "name") name: String): HotelDto? {

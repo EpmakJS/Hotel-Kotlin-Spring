@@ -21,19 +21,4 @@ class Hotel {
     @JsonIgnore
     var clients: List<Client> = emptyList()
 
-//    override fun toString(): String {
-//        return "{name: ${this.name}, clients: ${clients.map { it.firstName + it.lastName}}}"
-//    }
-
-//    var nbFreeRooms: Int = this.nbRooms
-
-//    fun checkIn(nbGuests: Int) {
-//        if (this.nbFreeRooms >= nbGuests) {
-//            this.nbFreeRooms -= nbGuests
-//        }
-//    }
-//
-//    fun checkOut(nbGuests: Int) {
-//        this.nbFreeRooms += nbGuests
-//    }
 }

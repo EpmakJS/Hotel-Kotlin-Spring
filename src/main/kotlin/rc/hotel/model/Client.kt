@@ -20,9 +20,4 @@ class Client {
     @JsonIgnore
     var hotel: Hotel? = null
 
-//    @DateTimeFormat
-//    var checkInDate: LocalDate = LocalDate.now()
-//
-//    var daysOfStay: Int = 0
-
 }
