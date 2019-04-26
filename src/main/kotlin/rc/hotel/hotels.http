@@ -7,33 +7,45 @@ GET http://localhost:8080/hotels/Ibis
 Content-Type: application/json
 
 ### POST request to checkin new client
+POST http://localhost:8080/hotels/Continental/checkin
+Content-Type: application/json
+
+{
+  "id": 9,
+  "firstName": "Jane",
+  "lastName": "Doe"
+}
+
+### POST request to checkout new client
 POST http://localhost:8080/hotels/Continental/checkout
 Content-Type: application/json
 
 {
-  "id": 6,
-  "firstName": "John",
+  "id": 9,
+  "firstName": "Jane",
   "lastName": "Doe"
 }
 
 ### POST request to create new hotel
-POST http://localhost:8080/hotels
+POST http://localhost:8080/hotels/add_hotel
 Content-Type: application/json
 
 {
   "name": "Palermo",
   "classification": 4,
-  "nbRooms": 60
+  "nbRooms": 60,
+  "clients": []
 }
 
 ### PUT request to change hotel
-PUT http://localhost:8080/hotels/Ibis
+PUT http://localhost:8080/hotels/Ibis/update
 Content-Type: application/json
 
 {
   "name": "Ibis",
   "classification": 3,
-  "nbRooms": 30
+  "nbRooms": 30,
+  "clients": []
 }
 
 ### DELETE request to delete hotel
