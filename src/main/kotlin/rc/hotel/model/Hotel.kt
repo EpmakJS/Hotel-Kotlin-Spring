@@ -5,11 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "hotel")
-class Hotel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long = 0
+class Hotel : AbstractEntity(){
 
     lateinit var name: String
 
